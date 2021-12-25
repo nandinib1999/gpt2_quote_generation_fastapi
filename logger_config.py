@@ -25,5 +25,5 @@ class LogConfig(BaseModel):
         },
     }
     loggers = {
-        "mycoolapp": {"handlers": ["default"], "level": LOG_LEVEL},
+        "quote_api": {"handlers": ["default"], "level": LOG_LEVEL},
     }
