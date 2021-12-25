@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from QuoteGenerator import QuoteGenerator
+from logger_config import LogConfig
+import logging
+from logging.config import dictConfig
 
+dictConfig(LogConfig().dict())
+logger = logging.getLogger("quote_api")
 app = FastAPI()
 
 quote_generator = QuoteGenerator()
