@@ -1,3 +1,5 @@
+# Reference: https://stackoverflow.com/questions/63510041/adding-python-logging-to-fastapi-endpoints-hosted-on-docker-doesnt-display-api
+
 from pydantic import BaseModel
 
 class LogConfig(BaseModel):
