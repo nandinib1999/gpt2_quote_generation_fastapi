@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from QuoteGenerator import QuoteGenerator
+from .QuoteGenerator import QuoteGenerator
 from logger_config import LogConfig
 import logging
 from logging.config import dictConfig
