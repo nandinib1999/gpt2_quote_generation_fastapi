@@ -2,7 +2,7 @@ from transformers import pipeline, set_seed, AutoTokenizer, AutoModelWithLMHead
 from transformers.pipelines import TextGenerationPipeline
 import re
 import random
-from logger_config import LogConfig
+from .logger_config import LogConfig
 import logging
 from logging.config import dictConfig
 
