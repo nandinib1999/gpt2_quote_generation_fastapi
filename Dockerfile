@@ -1,19 +1,15 @@
 FROM python:3.9
 
-# RUN apk --no-cache --update-cache add gcc python3-dev gfortran py-pip libpng-dev openblas-dev
-# RUN apk add --no-cache git automake autoconf libtool g++ protobuf protobuf-dev make cmake
-# RUN apk add build-base
+# Upgrading the pip module 
 RUN pip install -U pip
 RUN pip install -U setuptools
-# RUN apk add curl
-# RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-# ENV PATH="/root/.cargo/bin:${PATH}"
-# RUN cargo --help
+
+# Installing the required packages using requirements.txt
 COPY ./requirements.txt /requirements.txt
-# RUN apk add jpeg-dev zlib-dev
 RUN pip3 install torch==1.10.2+cpu torchvision==0.11.3+cpu torchaudio==0.10.2+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
-# RUN apk upgrade musl
 RUN pip install --no-cache-dir -r /requirements.txt
+
+# Shell script to run the fast-api
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
 COPY ./app /app
