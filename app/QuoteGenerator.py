@@ -32,7 +32,7 @@ class QuoteGenerator:
         quote = quote.capitalize()
         return quote
 
-    def generate_quote(self, prompt_start: str, min_length=3, max_length=25, temperature=1.0):
+    def generate_quote(self, prompt_start: str, min_length=3, max_length=25, top_p=0.9):
         logger.info("Entered the generate_quote function")
         if len(prompt_start.strip()) == 0:
             logger.info("Empty prompt..")
@@ -40,7 +40,7 @@ class QuoteGenerator:
             prompt_start = self.default_prompts[rand_index]
             logger.info("Prompt selected: "+prompt_start)
         logger.info("Starting the quote generation")
-        quote_gen = self.quote_generator(prompt_start.strip(), min_length = min_length, max_length = max_length, temperature = temperature, top_k = 0, top_p = 0.9)
+        quote_gen = self.quote_generator(prompt_start.strip(), min_length = min_length, max_length = max_length, temperature = 1.0, top_k = 0, top_p = top_p)
         logger.info("Quote generated...")
         quote = quote_gen[0]['generated_text']
         quote_clean = self.clean_text(quote)
